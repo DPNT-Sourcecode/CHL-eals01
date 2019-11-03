@@ -12,4 +12,14 @@ public class PriceReader {
         }
     }
 
+    public boolean productExists(String sku) {
+        try {
+            readPrice(sku);
+            return true;
+        } catch(IllegalArgumentException ex) {
+            return false;
+        }
+    }
+
 }
+

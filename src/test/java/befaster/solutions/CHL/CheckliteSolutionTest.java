@@ -24,9 +24,11 @@ public class CheckliteSolutionTest {
 
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void throwsIllegalArgumentExceptionForUnknownSku() {
-        solution.checklite("X");
+    @Test
+    public void returnsMinusOneForIllegalInput() {
+        int total = solution.checklite("X");
+
+        assertThat(total, sameBeanAs(-1));
     }
 
     @Test
@@ -51,6 +53,7 @@ public class CheckliteSolutionTest {
     }
 
 }
+
 
 
 

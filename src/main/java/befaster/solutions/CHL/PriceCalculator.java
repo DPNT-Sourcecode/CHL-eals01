@@ -22,6 +22,12 @@ public class PriceCalculator {
                 .mapToObj(c -> String.valueOf((char) c))
                 .collect(groupingBy(identity(), reducing(0, e -> 1, Integer::sum)));
 
+        for (String sku : skusToCounts.keySet()) {
+            if (!priceReader.productExists(sku)) {
+                return -1;
+            }
+        }
+
         int total = 0;
         for (Entry<String, Integer> skuToCount : skusToCounts.entrySet()) {
             String sku = skuToCount.getKey();
@@ -41,6 +47,7 @@ public class PriceCalculator {
     }
 
 }
+
 
 
 
