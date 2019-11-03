@@ -2,6 +2,7 @@ package befaster.solutions.CHL;
 
 public class PriceReader {
 
+    @SuppressWarnings("DuplicateBranchesInSwitch")
     public int readPrice(String sku) {
         switch (sku) {
             case "A": return 50;
@@ -44,4 +45,5 @@ public class PriceReader {
     }
 
 }
+
 
