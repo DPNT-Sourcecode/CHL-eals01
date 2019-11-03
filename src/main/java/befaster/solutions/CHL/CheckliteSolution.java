@@ -3,14 +3,14 @@ package befaster.solutions.CHL;
 public class CheckliteSolution {
 
     private final PriceReader priceReader = new PriceReader() ;
+    private final OfferReader offerReader = new OfferReader();
+
+    private final PriceCalculator calculator = new PriceCalculator(priceReader, offerReader);
 
     public Integer checklite(String skus) {
-        int total = 0;
-        for (String sku : skus.split("")) {
-            total += priceReader.readPrice(sku);
-        }
-        return total;
+        return calculator.calculateTotal(skus);
     }
 
 }
+
 
