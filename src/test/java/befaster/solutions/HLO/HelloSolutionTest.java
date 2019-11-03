@@ -11,10 +11,11 @@ public class HelloSolutionTest {
     private final HelloSolution solution = new HelloSolution();
 
     @Test
-    public void returnsHelloWorld() {
-        assertThat(solution.hello("whatever"), sameBeanAs("Hello, World!"));
+    public void returnsHelloFollowedByName() {
+        assertThat(solution.hello("Jarek"), sameBeanAs("Hello, Jarek!"));
     }
 
 }
+
 
 
