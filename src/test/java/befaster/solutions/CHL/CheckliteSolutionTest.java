@@ -43,7 +43,16 @@ public class CheckliteSolutionTest {
 
         assertThat(total, sameBeanAs(130 + 50));
     }
+    
+    @Test
+    public void buyingTwoItemsEGivesOneItemBForFree() {
+        int total = solution.checklite("EEB");
+
+        assertThat(total, sameBeanAs(80));
+
+    }
 
 }
+
 
 
