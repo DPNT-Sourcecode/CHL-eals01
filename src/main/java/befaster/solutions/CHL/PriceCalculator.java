@@ -42,15 +42,13 @@ public class PriceCalculator {
 
         List<Offer> offers = offerReader.readOffers();
         for (Offer offer : offers) {
-            if (!canApplyDiscount(skusToCounts, offer.getRequirements())) {
-                continue;
-            }
+            while(canApplyDiscount(skusToCounts, offer.getRequirements())) {
+                totalDiscount += offer.getDiscount();
 
-            totalDiscount += offer.getDiscount();
-
-            for (OfferRequirement requirement : offer.getRequirements()) {
-                String sku = requirement.getSku();
-                skusToCounts.put(sku, skusToCounts.get(sku) - requirement.getCount());
+                for (OfferRequirement requirement : offer.getRequirements()) {
+                    String sku = requirement.getSku();
+                    skusToCounts.put(sku, skusToCounts.get(sku) - requirement.getCount());
+                }
             }
         }
 
@@ -70,4 +68,5 @@ public class PriceCalculator {
     }
 
 }
+
 
