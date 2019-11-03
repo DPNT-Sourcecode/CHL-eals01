@@ -8,6 +8,7 @@ public class PriceReader {
             case "B": return 30;
             case "C": return 20;
             case "D": return 15;
+            case "E": return 40;
             default: throw new IllegalArgumentException();
         }
     }
@@ -22,3 +23,4 @@ public class PriceReader {
     }
 
 }
+
