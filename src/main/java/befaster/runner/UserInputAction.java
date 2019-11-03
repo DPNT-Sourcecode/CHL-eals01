@@ -25,12 +25,9 @@ public class UserInputAction implements ActionProvider {
     }
 
     private String readInputFromConsole() throws IOException {
-        System.out.println("creating buffered reader");
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("reader created");
-        String line = buffer.readLine();
-        System.out.println("line is: '" + line + "'");
-        return line;
+        return buffer.readLine();
     }
 }
+
 
