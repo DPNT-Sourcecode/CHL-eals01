@@ -2,13 +2,10 @@ package befaster.solutions.CHL;
 
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.function.Function;
 
 import static java.util.function.Function.identity;
-import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.reducing;
-import static java.util.stream.Collectors.toMap;
 
 public class PriceCalculator {
 
@@ -44,6 +41,7 @@ public class PriceCalculator {
     }
 
 }
+
 
 
 
