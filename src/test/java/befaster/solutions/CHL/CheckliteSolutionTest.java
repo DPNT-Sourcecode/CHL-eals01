@@ -17,16 +17,8 @@ public class CheckliteSolutionTest {
     }
 
     @Test
-    public void priceCalculatorIsCaseInsensitive() {
-        int total = solution.checklite("abcd");
-
-        assertThat(total, sameBeanAs(115));
-
-    }
-
-    @Test
     public void returnsMinusOneForIllegalInput() {
-        int total = solution.checklite("X");
+        int total = solution.checklite("a");
 
         assertThat(total, sameBeanAs(-1));
     }
@@ -53,3 +45,4 @@ public class CheckliteSolutionTest {
     }
 
 }
+

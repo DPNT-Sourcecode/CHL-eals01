@@ -18,7 +18,7 @@ public class PriceCalculator {
     }
 
     public int calculateTotal(String skus) {
-        Map<String, Integer> skusToCounts = skus.toUpperCase().chars()
+        Map<String, Integer> skusToCounts = skus.chars()
                 .mapToObj(c -> String.valueOf((char) c))
                 .collect(groupingBy(identity(), reducing(0, e -> 1, Integer::sum)));
 
@@ -47,3 +47,4 @@ public class PriceCalculator {
     }
 
 }
+
