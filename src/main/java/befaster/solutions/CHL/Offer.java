@@ -1,17 +1,19 @@
 package befaster.solutions.CHL;
 
+import java.util.List;
+
 public class Offer {
 
-    private final OfferRequirement requirement;
+    private final List<OfferRequirement> requirements;
     private final int discount;
 
-    public Offer(OfferRequirement requirement, int discount) {
-        this.requirement = requirement;
+    public Offer(List<OfferRequirement> requirements, int discount) {
+        this.requirements = requirements;
         this.discount = discount;
     }
 
-    public OfferRequirement getRequirement() {
-        return requirement;
+    public List<OfferRequirement> getRequirements() {
+        return requirements;
     }
 
     public int getDiscount() {
@@ -19,4 +21,3 @@ public class Offer {
     }
 
 }
-

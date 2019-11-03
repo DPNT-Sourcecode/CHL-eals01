@@ -42,8 +42,8 @@ public class PriceCalculator {
 
         List<Offer> offers = offerReader.readOffers();
         for (Offer offer : offers) {
-            String sku = offer.getRequirement().getSku();
-            int requiredCount = offer.getRequirement().getCount();
+            String sku = offer.getRequirements().getSku();
+            int requiredCount = offer.getRequirements().getCount();
             int discount = offer.getDiscount();
 
             while (skusToCounts.containsKey(sku) && skusToCounts.get(sku) >= requiredCount) {
@@ -56,7 +56,3 @@ public class PriceCalculator {
     }
 
 }
-
-
-
-
