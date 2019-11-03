@@ -16,6 +16,14 @@ public class CheckliteSolutionTest {
         assertThat(total, sameBeanAs(115));
     }
 
+    @Test
+    public void priceCalculatorIsCaseInsensitive() {
+        int total = solution.checklite("abcd");
+
+        assertThat(total, sameBeanAs(115));
+
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void throwsIllegalArgumentExceptionForUnknownSku() {
         solution.checklite("X");
@@ -43,6 +51,7 @@ public class CheckliteSolutionTest {
     }
 
 }
+
 
 
 
