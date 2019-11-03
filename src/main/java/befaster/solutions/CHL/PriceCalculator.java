@@ -1,6 +1,5 @@
 package befaster.solutions.CHL;
 
-import java.util.List;
 import java.util.Map;
 
 import static java.util.function.Function.identity;
@@ -11,10 +10,12 @@ public class PriceCalculator {
 
     private final PriceReader priceReader;
     private final OfferReader offerReader;
+    private final SingleOfferDiscountCalculator discountCalculator;
 
-    public PriceCalculator(PriceReader priceReader, OfferReader offerReader) {
+    public PriceCalculator(PriceReader priceReader, OfferReader offerReader, SingleOfferDiscountCalculator discountCalculator) {
         this.priceReader = priceReader;
         this.offerReader = offerReader;
+        this.discountCalculator = discountCalculator;
     }
 
     public int calculateTotal(String skus) {
@@ -38,33 +39,11 @@ public class PriceCalculator {
     }
 
     private int calculateDiscounts(Map<String, Integer> skusToCounts) {
-        int totalDiscount = 0;
-
-        List<Offer> offers = offerReader.readOffers();
-        for (Offer offer : offers) {
-            while(canApplyDiscount(skusToCounts, offer.getRequirements())) {
-                totalDiscount += offer.getDiscount();
-
-                for (OfferRequirement requirement : offer.getRequirements()) {
-                    String sku = requirement.getSku();
-                    skusToCounts.put(sku, skusToCounts.get(sku) - requirement.getCount());
-                }
-            }
-        }
-
-        return totalDiscount;
-    }
-
-    private static boolean canApplyDiscount(Map<String, Integer> skusToCounts, List<OfferRequirement> requirements) {
-        for (OfferRequirement requirement : requirements) {
-            if (!skusToCounts.containsKey(requirement.getSku())) {
-                return false;
-            }
-            if (skusToCounts.get(requirement.getSku()) < requirement.getCount()) {
-                return false;
-            }
-        }
-        return true;
+        return offerReader.readOffers()
+                .stream()
+                .mapToInt(offer -> discountCalculator.calculateDiscount(offer, skusToCounts))
+                .sum();
     }
 
 }
+
