@@ -31,6 +31,13 @@ public class CheckliteSolutionTest {
     }
 
     @Test
+    public void returnsTotalPriceForItemAWithMultipleOffers() {
+        int total = solution.checklite("AAAAA AAA AA".replace(" ", ""));
+
+        assertThat(total, sameBeanAs(200 + 130 + 50 + 50));
+    }
+
+    @Test
     public void returnsTotalPriceForItemBWithOffer() {
         int total = solution.checklite("BB");
 
@@ -49,7 +56,14 @@ public class CheckliteSolutionTest {
         int total = solution.checklite("EEB");
 
         assertThat(total, sameBeanAs(80));
+    }
 
+    @Test
+    public void whenTwoOffersAreEligibleForItemsEAndBThenMostFavorableIsApplied() {
+        int total = solution.checklite("EEBB");
+
+        assertThat(total, sameBeanAs(2 * 40 + 30));
     }
 
 }
+
