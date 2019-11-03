@@ -27,7 +27,7 @@ dependencies {
         exclude module : 'hamcrest-core'
     }
     testCompile 'org.hamcrest:hamcrest-all:1.3'
-    testCompile 'com.shazam:shazamrest:0.11'
+    testCompile 'com.shazam:shazamcrest:0.11'
 }
 
 // Making the app runnable
@@ -66,4 +66,5 @@ jacocoTestReport {
         html.destination file("${buildDir}/jacocoHtml")
     }
 }
+
 

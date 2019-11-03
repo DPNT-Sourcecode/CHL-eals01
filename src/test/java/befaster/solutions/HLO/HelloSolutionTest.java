@@ -2,14 +2,18 @@ package befaster.solutions.HLO;
 
 import org.junit.Test;
 
+import static com.shazam.shazamcrest.MatcherAssert.assertThat;
+import static com.shazam.shazamcrest.matcher.Matchers.sameBeanAs;
+
 
 public class HelloSolutionTest {
 
-    HelloSolution solution = new HelloSolution();
+    private final HelloSolution solution = new HelloSolution();
 
     @Test
     public void returnsHello() {
-        assertThat();
+        assertThat(solution.hello("whatever"), sameBeanAs("hello"));
     }
 
 }
+
