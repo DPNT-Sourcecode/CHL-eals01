@@ -1,5 +1,6 @@
 package befaster.solutions.CHL;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -32,25 +33,30 @@ public class PriceCalculator {
                 .mapToInt(entry -> priceReader.readPrice(entry.getKey()) * entry.getValue())
                 .sum();
 
-
-
-        for (Entry<String, Integer> skuToCount : skusToCounts.entrySet()) {
-            String sku = skuToCount.getKey();
-            int count = skuToCount.getValue();
-            int price = priceReader.readPrice(sku);
-
-            Offer offer = offerReader.readOfferForItem(sku);
-
-            if (offer == null) {
-                total += count * price;
-            } else {
-                total += count / offer.getCount() * offer.getPrice() + count % offer.getCount() * price;
-            }
-        }
+        total -= calculateDiscounts(skusToCounts);
 
         return total;
     }
 
+    private int calculateDiscounts(Map<String, Integer> skusToCounts) {
+        int totalDiscount = 0;
+
+        List<Offer> offers = offerReader.readOffers();
+        for (Offer offer : offers) {
+            String sku = offer.getRequirement().getSku();
+            int requiredCount = offer.getRequirement().getCount();
+            int discount = offer.getDiscount();
+
+            while (skusToCounts.containsKey(sku) && skusToCounts.get(sku) >= requiredCount) {
+                totalDiscount += discount;
+                skusToCounts.put(sku, skusToCounts.get(sku) - requiredCount);
+            }
+        }
+
+        return totalDiscount;
+    }
+
 }
+
 
 
