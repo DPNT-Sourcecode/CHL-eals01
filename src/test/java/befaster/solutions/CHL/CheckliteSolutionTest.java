@@ -21,5 +21,20 @@ public class CheckliteSolutionTest {
         solution.checklite("X");
     }
 
+    @Test
+    public void returnsTotalPriceForItemAWithOffer() {
+        int total = solution.checklite("AAA");
+
+        assertThat(total, sameBeanAs(130));
+    }
+
+    @Test
+    public void returnsTotalPriceForItemBWithOffer() {
+        int total = solution.checklite("BB");
+
+        assertThat(total, sameBeanAs(45));
+    }
+
 }
+
 
