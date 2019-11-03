@@ -11,9 +11,9 @@ public class CheckliteSolutionTest {
 
     @Test
     public void returnsTotalPriceOfProductsWithoutOffers() {
-        int total = solution.checklite("ABCD");
+        int total = solution.checklite("ABCDE");
 
-        assertThat(total, sameBeanAs(115));
+        assertThat(total, sameBeanAs(155));
     }
 
     @Test
@@ -45,4 +45,5 @@ public class CheckliteSolutionTest {
     }
 
 }
+
 
