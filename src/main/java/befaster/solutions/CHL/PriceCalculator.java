@@ -28,7 +28,12 @@ public class PriceCalculator {
             }
         }
 
-        int total = 0;
+        int total = skusToCounts.entrySet().stream()
+                .mapToInt(entry -> priceReader.readPrice(entry.getKey()) * entry.getValue())
+                .sum();
+
+
+
         for (Entry<String, Integer> skuToCount : skusToCounts.entrySet()) {
             String sku = skuToCount.getKey();
             int count = skuToCount.getValue();
@@ -47,4 +52,5 @@ public class PriceCalculator {
     }
 
 }
+
 

@@ -2,20 +2,21 @@ package befaster.solutions.CHL;
 
 public class Offer {
 
-    private final int count;
-    private final int price;
+    private final OfferRequirement requirement;
+    private final int discount;
 
-    public Offer(int count, int price) {
-        this.count = count;
-        this.price = price;
+    public Offer(OfferRequirement requirement, int discount) {
+        this.requirement = requirement;
+        this.discount = discount;
     }
 
-    public int getCount() {
-        return count;
+    public OfferRequirement getRequirement() {
+        return requirement;
     }
 
-    public int getPrice() {
-        return price;
+    public int getDiscount() {
+        return discount;
     }
 
 }
+
