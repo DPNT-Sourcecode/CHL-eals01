@@ -22,20 +22,21 @@ public class PriceCalculator {
 
     public int calculateTotal(String skus) {
         Map<String, Integer> skusToCounts = skus.chars()
-                .mapToObj(String::valueOf)
+                .mapToObj(c -> String.valueOf((char) c))
                 .collect(groupingBy(identity(), reducing(0, e -> 1, Integer::sum)));
 
         int total = 0;
         for (Entry<String, Integer> skuToCount : skusToCounts.entrySet()) {
             String sku = skuToCount.getKey();
             int count = skuToCount.getValue();
+            int price = priceReader.readPrice(sku);
 
             Offer offer = offerReader.readOfferForItem(sku);
 
             if (offer == null) {
-                total += count * priceReader.readPrice(sku);
+                total += count * price;
             } else {
-                total += count / offer.getCount() * offer.getPrice();
+                total += count / offer.getCount() * offer.getPrice() + count % offer.getCount() * price;
             }
         }
 
@@ -43,5 +44,6 @@ public class PriceCalculator {
     }
 
 }
+
 
 

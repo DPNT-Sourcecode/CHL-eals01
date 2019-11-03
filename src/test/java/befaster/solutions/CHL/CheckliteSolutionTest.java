@@ -35,6 +35,14 @@ public class CheckliteSolutionTest {
         assertThat(total, sameBeanAs(45));
     }
 
+    @Test
+    public void returnsTotalPriceForItemWithOfferWhenCountIsNotMultiple() {
+        int total = solution.checklite("AAAA");
+
+        assertThat(total, sameBeanAs(130 + 50));
+    }
+
 }
+
 
 
