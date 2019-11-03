@@ -1,6 +1,5 @@
 package befaster.solutions.CHL;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -17,3 +16,4 @@ public class OfferReader {
     }
 
 }
+
