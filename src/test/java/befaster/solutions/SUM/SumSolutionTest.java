@@ -1,6 +1,5 @@
 package befaster.solutions.SUM;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -16,4 +15,3 @@ public class SumSolutionTest {
     }
 
 }
-

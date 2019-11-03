@@ -29,5 +29,3 @@ public class UserInputAction implements ActionProvider {
         return buffer.readLine();
     }
 }
-
-
