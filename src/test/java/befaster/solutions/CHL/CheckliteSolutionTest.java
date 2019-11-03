@@ -1,6 +1,5 @@
 package befaster.solutions.CHL;
 
-import com.shazam.shazamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static com.shazam.shazamcrest.MatcherAssert.assertThat;
@@ -12,9 +11,9 @@ public class CheckliteSolutionTest {
 
     @Test
     public void returnsTotalPriceOfProductsWithoutOffers() {
-        int total = solution.checklite("ABC");
+        int total = solution.checklite("ABCD");
 
-        assertThat(total, sameBeanAs(100));
+        assertThat(total, sameBeanAs(115));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -23,3 +22,4 @@ public class CheckliteSolutionTest {
     }
 
 }
+

@@ -1,11 +1,16 @@
 package befaster.solutions.CHL;
 
-import befaster.runner.SolutionNotImplementedException;
-
 public class CheckliteSolution {
 
+    private final PriceReader priceReader = new PriceReader() ;
+
     public Integer checklite(String skus) {
-        throw new SolutionNotImplementedException();
+        int total = 0;
+        for (String sku : skus.split("")) {
+            total += priceReader.readPrice(sku);
+        }
+        return total;
     }
 
 }
+
