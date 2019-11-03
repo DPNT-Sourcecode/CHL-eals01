@@ -24,7 +24,7 @@ public class OfferReader {
                 new Offer(asList(new OfferRequirement("N", 3), new OfferRequirement("M", 1)), 15),
                 new Offer(singletonList(new OfferRequirement("P", 5)), 50),
                 new Offer(asList(new OfferRequirement("R", 3), new OfferRequirement("Q", 1)), 30),
-                new Offer(singletonList(new OfferRequirement("Q", 3)), 80),
+                new Offer(singletonList(new OfferRequirement("Q", 3)), 10),
                 new Offer(singletonList(new OfferRequirement("U", 4)), 40),
                 new Offer(singletonList(new OfferRequirement("V", 3)), 20),
                 new Offer(singletonList(new OfferRequirement("V", 2)), 10)
@@ -32,4 +32,5 @@ public class OfferReader {
     }
 
 }
+
 
