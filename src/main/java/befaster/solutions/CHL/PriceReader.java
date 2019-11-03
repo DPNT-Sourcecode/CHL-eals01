@@ -10,6 +10,26 @@ public class PriceReader {
             case "D": return 15;
             case "E": return 40;
             case "F": return 10;
+            case "G": return 20;
+            case "H": return 10;
+            case "I": return 35;
+            case "J": return 60;
+            case "K": return 80;
+            case "L": return 90;
+            case "M": return 15;
+            case "N": return 40;
+            case "O": return 10;
+            case "P": return 50;
+            case "Q": return 30;
+            case "R": return 50;
+            case "S": return 30;
+            case "T": return 20;
+            case "U": return 40;
+            case "V": return 50;
+            case "W": return 20;
+            case "X": return 90;
+            case "Y": return 10;
+            case "Z": return 50;
             default: throw new IllegalArgumentException();
         }
     }
@@ -24,3 +44,4 @@ public class PriceReader {
     }
 
 }
+
